@@ -1,0 +1,60 @@
+﻿@model List<ProductViewModel>
+
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <div class="d-flex justify-content-between position-absolute w-100">
+                        <div class="label-new">
+                            <span class="text-white bg-success small d-flex align-items-center px-2 py-1">
+                                <i class="fa fa-star" aria-hidden="true"></i>
+                                <span class="ml-1">New</span>
+                            </span>
+                        </div>
+                        <div class="label-sale">
+                            <span class="text-white bg-primary small d-flex align-items-center px-2 py-1">
+                                <i class="fa fa-tag" aria-hidden="true"></i>
+                                <span class="ml-1">Sale</span>
+                            </span>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <img src="@product.ImageUrl" class="card-img-top" alt="Product" style="
+    height: 407px;
+">
+                    </a>
+                    <div class="card-body px-2 pb-2 pt-1" style="
+    background: aliceblue;
+">
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <p class="h4 text-primary">@product.Name</p>
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            <strong>
+                                <a href="#" class="text-secondary">$@Math.Round(product.Price,2)</a>
+                            </strong>
+                            <hr/>
+                        </p>
+                        <div class="d-flex justify-content-between">
+                            <div class="col px-0">
+                                <button class="btn btn-primary btn-block addToCart" data-id="@product.Id">
+                                    Add To Cart
+                                    <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <div class="ml-2">
+                                <a href="#" class="btn btn-outline-success" data-toggle="tooltip" data-placement="left" title="Add to Wishlist">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿@model List<Exam.Controllers.api.CartItem>
+
+       @foreach(var item in Model){
+          <script>items.push({
+        id: "@item.productId",
+            name: "@item.product.Name",
+            quantity: "@item.quantity",
+                    price: @(item.product.Price * item.quantity),
+                        image: "@item.product.ImageUrl"
+    });
+</script>
+       }
+<div class="disappear">
+    <div class="cart-title">
+        <div>
+            <h1>Shopping Cart</h1>
+            <p class="sub-title">Please review the items in your cart (<span class="cart-count"></span>)</p>
+        </div>
+        <div class="total">
+            <span class="total-txt">Total Amount</span>
+            <span class="total-amount">USD &nbsp;<span></span></span>
+            <a asp-controller="Product" asp-action="Index" class="continue-shopping">Continue Shopping</a>
+        </div>
+    </div>
+    <ul></ul>
+    <div class="checkout">
+        <button class="placeOrder">Place Order</button>
+    </div>
+</div>
